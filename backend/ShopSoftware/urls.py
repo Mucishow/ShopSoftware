@@ -20,8 +20,8 @@ from products import views as pdview
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('products/', pdview.all),
-    path('products/shopList', pdview.valid_elements),
+    path('products/shopList/', pdview.valid_elements),
     path('products/crawl/', pdview.crawl),
-    path('products/<id>/', pdview.validate),
+    path('products/<id>/', pdview.detail),
     path('img/<name>/', pdview.image)
 ]

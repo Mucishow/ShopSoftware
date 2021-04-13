@@ -1,18 +1,18 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import HelloWorld from '../views/HelloWorld.vue'
+import ToValidate from '../views/ToValidate.vue'
+import Validated  from '../views/Validated.vue'
 import Crawler from '../views/Crawler.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: HelloWorld
+    name: 'ToValidate',
+    component: ToValidate
   },
   {
-    path: '/hello',
-    name: 'HelloWorld',
-    component: HelloWorld
+    path: '/shop',
+    name: 'Validated',
+    component: Validated
   },
   {
     path: '/products/crawler',

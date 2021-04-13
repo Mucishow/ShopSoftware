@@ -25,14 +25,13 @@ export default {
   },
   methods: {
     crawler() {
-
       var self = this;
       console.log(this.crawlerObject)
       axios.post(self.backend_url+'products/crawl/',{itens:[this.crawlerObject]})
       .then((response) => {
         console.log(response);
       });
-      }
+    }
   },
 }
 </script>

@@ -8,7 +8,7 @@ import json
 
 # Create your views here.
 def all(request):
-    return json_response(Product.objects.values())
+    return json_response(Product.objects.filter(valid=False).values())
 
 def valid_elements(request):
     return json_response(Product.objects.filter(valid=True).values())
@@ -23,10 +23,16 @@ def crawl(request):
         pd_crawler.crawl(item);
     return HttpResponse("OK")
 
-def validate(request,id):
-    product = Product.objects.get(id=id)
+def detail(request,id):
+    if(request.method == "POST"):
+        product = Product.objects.get(id=id)
 
-    product.valid = True
-    product.save()
+        product.valid = True
+        product.save()
 
-    return HttpResponse("OK")
+        return HttpResponse("OK")
+    elif(request.method == "DELETE"):
+        Product.objects.filter(id=id).delete()
+        return HttpResponse("DELETED")
+
+
