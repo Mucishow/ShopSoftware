@@ -21,7 +21,8 @@
           </div>
         </div>
         <div v-else>
-          +
+          <input v-model="quantity" style="width:40px" type="number">
+          <span style="font-weight:700" @click="addToList">+</span>
         </div>
     </div>
   </div>
@@ -40,7 +41,8 @@ export default {
   },
   data() {
     return {
-      backend_url: "http://localhost:8000/"
+      quantity: null,
+      backend_url: "http://localhost:8000/",
     };
   },
   methods: {
@@ -61,11 +63,12 @@ export default {
       });
     },
     addToList() {
-      console.log(this.crawlerObject)
-      //axios.post(self.backend_url+'products/crawl/',{itens:[this.crawlerObject]})
-      //.then((response) => {
-      //  console.log(response);
-      //});
+      var self = this;
+      console.log(self.backend_url)
+      axios.post(self.backend_url+'list/addToList/',{item: self.item, quantity: self.quantity})
+      .then((response) => {
+        console.log(response);
+      });
     },
     removeToList() {
       var self = this;

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from products import views as pdview
+from shopcart import views as listview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +24,9 @@ urlpatterns = [
     path('products/shopList/', pdview.valid_elements),
     path('products/crawl/', pdview.crawl),
     path('products/<id>/', pdview.detail),
-    path('img/<name>/', pdview.image)
+    path('list/', listview.show_list),
+    path('list/clear/', listview.clear_list),
+    path('list/new/', listview.new),
+    path('list/addToList/', listview.add),
+    path('img/<name>/', pdview.image),
 ]

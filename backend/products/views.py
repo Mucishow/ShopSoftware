@@ -5,6 +5,7 @@ from django.http import JsonResponse
 import products.crawler as pd_crawler
 from django.http import HttpResponse
 import json
+import os
 
 # Create your views here.
 def all(request):
@@ -32,6 +33,8 @@ def detail(request,id):
 
         return HttpResponse("OK")
     elif(request.method == "DELETE"):
+        product = Product.objects.get(id=id)
+        os.remove("img/"+str(product.picture))
         Product.objects.filter(id=id).delete()
         return HttpResponse("DELETED")
 

@@ -33,6 +33,7 @@ DEBUG = True
 INSTALLED_APPS = [
     'rest_framework',
     'products.apps.ProductsConfig',
+    'shopcart.apps.ShopCartConfig',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',

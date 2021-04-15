@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ToValidate from '../views/ToValidate.vue'
 import Validated  from '../views/Validated.vue'
 import Crawler from '../views/Crawler.vue'
+import About from '../views/About.vue'
+import About1 from '../views/About1.vue'
 
 const routes = [
   {
@@ -20,13 +22,22 @@ const routes = [
     component: Crawler
   },
   {
+    path: '/about1',
+    name: 'About1',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: About1
+  },
+  {
     path: '/about',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: About
   }
+
 ]
 
 const router = createRouter({

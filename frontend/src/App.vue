@@ -2,6 +2,7 @@
   <div id="nav">
     <router-link to="/">Validação</router-link> |
     <router-link to="/about">About</router-link> |
+    <router-link to="/about1">About</router-link> |
     <router-link to="/shop">Lista</router-link> |
     <router-link to="/products/crawler">Crawler</router-link>
   </div>

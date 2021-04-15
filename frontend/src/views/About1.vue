@@ -19,21 +19,15 @@ export default {
     return {
       backend_url: "http://localhost:8000/",
       image_url: "",
-      itens: [],
     };
   },
   methods: {
-    vanish(index) {
-      var self = this;
-      setTimeout(function(){ console.log(self.itens.splice(index,1)); }, 50);
-    }
   },
   created: function(){
     var self = this;
-    axios.get(self.backend_url+'list/')
+    axios.post(self.backend_url+'list/new/')
     .then((response) => {
-      self.image_url = self.backend_url+"img/"
-      self.itens = response.data;
+      console.log(response);
     });
   }
 }
